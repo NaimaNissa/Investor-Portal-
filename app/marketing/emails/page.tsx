@@ -9,6 +9,8 @@ const campaigns = [
 ];
 
 export default function MarketingEmailsPage() {
+  const showToast = useToast();
+  const onNewCampaign = () => showToast("Demo: New campaign created. Draft saved.");
   return (
     <div className="space-y-8 animate-fade-in">
       <section>
@@ -28,7 +30,7 @@ export default function MarketingEmailsPage() {
           </h2>
           <button
             type="button"
-            onClick={() => toast("Demo: New campaign created. Draft saved.")}
+            onClick={onNewCampaign}
             className="inline-flex items-center gap-2 rounded-lg bg-brand-500 px-3 py-2 text-sm font-medium text-white hover:bg-brand-600"
           >
             <Send className="h-4 w-4" />

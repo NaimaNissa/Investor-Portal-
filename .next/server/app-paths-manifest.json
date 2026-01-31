@@ -1,8 +1,0 @@
-{
-  "/crm/tasks/page": "app/crm/tasks/page.js",
-  "/crm/contacts/page": "app/crm/contacts/page.js",
-  "/compliance/page": "app/compliance/page.js",
-  "/marketing/automations/page": "app/marketing/automations/page.js",
-  "/marketing/pipelines/page": "app/marketing/pipelines/page.js",
-  "/marketing/pipelines/[stage]/page": "app/marketing/pipelines/[stage]/page.js"
-}
