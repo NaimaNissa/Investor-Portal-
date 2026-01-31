@@ -90,7 +90,6 @@ const navConfig: NavItem[] = [
       { href: "/resources/vendors", label: "Vendors" },
       { href: "/resources/events", label: "Events" },
       { href: "/resources/support", label: "Support" },
-      { href: "/resources/framework", label: "Framework" },
     ],
   },
 ];

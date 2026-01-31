@@ -180,10 +180,10 @@ export default function DashboardPage() {
           </div>
         </div>
         <Link
-          href="/resources/framework"
+          href="/resources"
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-400 hover:text-brand-300"
         >
-          See full framework
+          View resources
           <ChevronRight className="h-4 w-4" />
         </Link>
       </section>
