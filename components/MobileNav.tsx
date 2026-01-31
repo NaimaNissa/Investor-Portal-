@@ -24,7 +24,12 @@ import {
 } from "lucide-react";
 import { clsx } from "clsx";
 
-const navConfig = [
+type NavChild = { href: string; label: string; badge?: string; locked?: boolean };
+type NavItem =
+  | { href: string; label: string; icon: React.ComponentType<{ className?: string }>; badge?: string; children?: never }
+  | { href: string; label: string; icon: React.ComponentType<{ className?: string }>; children: NavChild[]; badge?: never };
+
+const navConfig: NavItem[] = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
   {
     href: "/portfolio",

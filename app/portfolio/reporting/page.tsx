@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FileText, BarChart3, ChevronRight } from "lucide-react";
 import { performanceData } from "@/lib/mockData";
 import { PerformanceChart } from "@/components/PerformanceChart";
+import { useToast } from "@/components/Toast";
 
 const reports = [
   { id: "1", name: "Q4 2024 Fund Performance", date: "2025-01-15", type: "Quarterly" },
@@ -12,6 +13,9 @@ const reports = [
 ];
 
 export default function ReportingPage() {
+  const showToast = useToast();
+  const onOpenReport = (r: (typeof reports)[number]) =>
+    showToast(`Demo: Opening "${r.name}" (${r.type}). PDF download would start.`);
   return (
     <div className="space-y-8 animate-fade-in">
       <section>
@@ -41,7 +45,7 @@ export default function ReportingPage() {
             <li key={r.id}>
               <button
                 type="button"
-                onClick={() => toast(`Demo: Opening "${r.name}" (${r.type}). PDF download would start.`)}
+                onClick={() => onOpenReport(r)}
                 className="flex w-full items-center justify-between rounded-lg border border-surface-700 bg-surface-800/50 p-4 transition-colors hover:border-surface-600 text-left"
               >
                 <div>
