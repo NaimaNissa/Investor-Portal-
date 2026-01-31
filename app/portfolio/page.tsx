@@ -32,53 +32,53 @@ export default function PortfolioPage() {
   }));
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
           Portfolio
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Commitment, deployment, and performance across your investments.
         </p>
       </section>
 
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-5">
+      <section className="grid gap-3 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 min-w-0">
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-5 min-w-0">
           <p className="text-sm font-medium text-surface-400">Total commitment</p>
-          <p className="mt-2 text-2xl font-semibold text-white">
+          <p className="mt-2 text-xl sm:text-2xl font-semibold text-white break-words">
             {formatCurrency(portfolioSummary.totalCommitment)}
           </p>
         </div>
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-5">
-          <p className="text-sm font-medium text-surface-400">Deployed</p>
-          <p className="mt-2 text-2xl font-semibold text-white">
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-5 min-w-0">
+          <p className="text-xs sm:text-sm font-medium text-surface-400">Deployed</p>
+          <p className="mt-2 text-xl sm:text-2xl font-semibold text-white">
             {formatCurrency(portfolioSummary.totalDeployed)}
           </p>
           <p className="mt-0.5 text-xs text-surface-500">
             {((portfolioSummary.totalDeployed / portfolioSummary.totalCommitment) * 100).toFixed(1)}% of commitment
           </p>
         </div>
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-5">
-          <p className="text-sm font-medium text-surface-400">Distributions</p>
-          <p className="mt-2 text-2xl font-semibold text-emerald-400">
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-5 min-w-0">
+          <p className="text-xs sm:text-sm font-medium text-surface-400">Distributions</p>
+          <p className="mt-2 text-xl sm:text-2xl font-semibold text-emerald-400">
             {formatCurrency(portfolioSummary.totalDistributions)}
           </p>
         </div>
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-5">
-          <p className="text-sm font-medium text-surface-400">Current value</p>
-          <p className="mt-2 text-2xl font-semibold text-white">
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-5 min-w-0">
+          <p className="text-xs sm:text-sm font-medium text-surface-400">Current value</p>
+          <p className="mt-2 text-xl sm:text-2xl font-semibold text-white break-words">
             {formatCurrency(portfolioSummary.currentValue)}
           </p>
         </div>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <PieChart className="h-5 w-5 text-brand-400" />
+      <section className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 min-w-0">
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0 overflow-hidden">
+          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <PieChart className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Allocation by fund
           </h3>
-          <div className="mt-6 h-72">
+          <div className="mt-4 sm:mt-6 h-56 sm:h-64 md:h-72 min-h-[14rem]">
             <ResponsiveContainer width="100%" height="100%">
               <RechartsPie>
                 <Pie
@@ -109,24 +109,24 @@ export default function PortfolioPage() {
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-brand-400" />
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <TrendingUp className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Key multiples
           </h3>
-          <ul className="mt-6 space-y-4">
+          <ul className="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
             {allocationByFund.map((fund) => (
               <li
                 key={fund.name}
-                className="flex items-center justify-between rounded-lg border border-surface-700 bg-surface-800/50 p-4"
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-lg border border-surface-700 bg-surface-800/50 p-3 sm:p-4 min-w-0"
               >
-                <div>
-                  <p className="font-medium text-surface-100">{fund.name}</p>
-                  <p className="text-sm text-surface-500">
+                <div className="min-w-0">
+                  <p className="font-medium text-surface-100 text-sm sm:text-base">{fund.name}</p>
+                  <p className="text-xs sm:text-sm text-surface-500">
                     {formatCurrency(fund.value)} · {fund.share}%
                   </p>
                 </div>
-                <p className="text-lg font-semibold text-brand-400">
+                <p className="text-base sm:text-lg font-semibold text-brand-400 shrink-0">
                   IRR {fund.irr}%
                 </p>
               </li>

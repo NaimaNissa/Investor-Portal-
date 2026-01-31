@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -96,8 +97,11 @@ const navConfig: NavItem[] = [
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [expanded, setExpanded] = useState<string[]>([]);
   const pathname = usePathname();
+
+  useEffect(() => setMounted(true), []);
 
   const toggle = (href: string) => {
     setExpanded((prev) =>
@@ -105,36 +109,29 @@ export function MobileNav() {
     );
   };
 
-  return (
-    <div className="lg:hidden">
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="rounded-lg p-2 text-surface-400 hover:bg-surface-800 hover:text-surface-100"
-        aria-label="Open menu"
+  const drawer = open && mounted && typeof document !== "undefined" && (
+    <>
+      <div
+        className="fixed inset-0 z-[9998] bg-surface-950/80 backdrop-blur-sm"
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+      <aside
+        className="fixed left-0 top-0 z-[9999] flex h-full w-[min(18rem,90vw)] max-w-[18rem] flex-col border-r border-surface-800 bg-surface-900 shadow-2xl"
+        style={{ paddingLeft: "max(1rem, env(safe-area-inset-left))" }}
       >
-        <Menu className="h-6 w-6" />
-      </button>
-      {open && (
-        <>
-          <div
-            className="fixed inset-0 z-50 bg-surface-950/80 backdrop-blur-sm"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-          <aside className="fixed left-0 top-0 z-50 h-full w-72 border-r border-surface-800 bg-surface-900 shadow-xl overflow-y-auto">
-            <div className="flex h-16 items-center justify-between border-b border-surface-800 px-4">
-              <span className="font-semibold text-white">Investor Portal</span>
+            <div className="flex h-14 shrink-0 items-center justify-between border-b border-surface-800 px-4">
+              <span className="font-semibold text-white text-sm sm:text-base truncate pr-2">Investor Portal</span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-lg p-2 text-surface-400 hover:bg-surface-800 hover:text-surface-100"
+                className="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-lg p-2 text-surface-400 hover:bg-surface-800 hover:text-surface-100 touch-manipulation"
                 aria-label="Close menu"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <nav className="flex flex-col gap-0.5 p-4">
+            <nav className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden py-4 px-3 sm:px-4" style={{ WebkitOverflowScrolling: "touch" }}>
               {navConfig.map((item) => {
                 const hasChildren = "children" in item && item.children?.length;
                 const isExpanded = hasChildren && expanded.includes(item.href);
@@ -150,7 +147,7 @@ export function MobileNav() {
                         onClick={() => toggle(item.href)}
                         onKeyDown={(e) => e.key === "Enter" && toggle(item.href)}
                         className={clsx(
-                          "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium cursor-pointer",
+                          "flex min-h-[44px] items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium cursor-pointer touch-manipulation",
                           isParentActive ? "bg-brand-500/15 text-brand-400" : "text-surface-400 hover:bg-surface-800 hover:text-surface-100"
                         )}
                       >
@@ -179,7 +176,7 @@ export function MobileNav() {
                                 href={child.href}
                                 onClick={() => setOpen(false)}
                                 className={clsx(
-                                  "flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-medium",
+                                  "flex min-h-[40px] items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-medium touch-manipulation",
                                   isActive ? "bg-brand-500/15 text-brand-400" : "text-surface-400 hover:bg-surface-800 hover:text-surface-100"
                                 )}
                               >
@@ -205,7 +202,7 @@ export function MobileNav() {
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className={clsx(
-                      "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium",
+                      "flex min-h-[44px] items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium touch-manipulation",
                       isActive ? "bg-brand-500/15 text-brand-400" : "text-surface-400 hover:bg-surface-800 hover:text-surface-100"
                     )}
                   >
@@ -220,12 +217,28 @@ export function MobileNav() {
                 );
               })}
             </nav>
-            <div className="border-t border-surface-800 p-4">
+            <div
+              className="shrink-0 border-t border-surface-800 p-4"
+              style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+            >
               <p className="text-xs text-surface-500">Powered by AI investment intelligence</p>
             </div>
           </aside>
-        </>
-      )}
+    </>
+  );
+
+  return (
+    <div className="lg:hidden shrink-0">
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className="flex min-h-[44px] min-w-[44px] items-center justify-center gap-1.5 rounded-lg bg-surface-800 px-2.5 py-2 text-white hover:bg-surface-700 touch-manipulation sm:px-2 sm:bg-transparent sm:text-surface-400 sm:hover:bg-surface-800 sm:hover:text-surface-100"
+        aria-label="Open menu"
+      >
+        <Menu className="h-6 w-6 shrink-0" />
+        <span className="text-sm font-medium sm:hidden">Menu</span>
+      </button>
+      {mounted && drawer && createPortal(drawer, document.body)}
     </div>
   );
 }

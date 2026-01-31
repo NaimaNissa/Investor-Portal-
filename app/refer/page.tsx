@@ -21,30 +21,30 @@ export default function ReferPage() {
     toast("Email client opened to invite a friend");
   };
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <div className="flex items-center gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <div className="flex flex-wrap items-center gap-2">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
             Refer a friend
           </h1>
           <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-medium text-emerald-400">
             NEW
           </span>
         </div>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Layer 6: Engagement · Grow the investor network and earn rewards.
         </p>
       </section>
-      <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-8">
+      <section className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-4 sm:p-6 lg:p-8 min-w-0 overflow-hidden">
         <div className="flex flex-col items-center justify-center gap-4 text-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-emerald-500/15">
-            <Gift className="h-7 w-7 text-emerald-400" />
+          <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-emerald-500/15 shrink-0">
+            <Gift className="h-6 w-6 sm:h-7 sm:w-7 text-emerald-400" />
           </div>
-          <h2 className="text-lg font-semibold text-white">Invite fellow investors</h2>
-          <p className="max-w-md text-sm text-surface-400">
+          <h2 className="text-base sm:text-lg font-semibold text-white">Invite fellow investors</h2>
+          <p className="w-full max-w-md text-xs sm:text-sm text-surface-400 px-0">
             Share your unique referral link. When they join the platform, you both benefit from the expanded network and co-investing opportunities.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-4 sm:mt-6 flex flex-col gap-3 sm:flex-row w-full sm:w-auto">
             <button
               type="button"
               onClick={handleCopyLink}

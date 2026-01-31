@@ -4,9 +4,9 @@ import { Users, Contact, Building2 } from "lucide-react";
 
 export default function CRMPage() {
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
           CRM
         </h1>
         <p className="mt-1 text-surface-400">

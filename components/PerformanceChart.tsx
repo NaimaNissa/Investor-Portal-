@@ -15,12 +15,12 @@ type DataPoint = { month: string; value: number; benchmark: number };
 
 export function PerformanceChart({ data }: { data: DataPoint[] }) {
   return (
-    <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-      <h3 className="text-lg font-semibold text-white">Performance vs benchmark</h3>
-      <p className="mt-0.5 text-sm text-surface-400">
+    <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0 overflow-hidden">
+      <h3 className="text-base sm:text-lg font-semibold text-white">Performance vs benchmark</h3>
+      <p className="mt-0.5 text-xs sm:text-sm text-surface-400">
         Monthly return (%), trailing 7 months
       </p>
-      <div className="mt-6 h-64">
+      <div className="mt-4 sm:mt-6 h-48 sm:h-56 md:h-64 min-h-[12rem]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <defs>
@@ -76,13 +76,13 @@ export function PerformanceChart({ data }: { data: DataPoint[] }) {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      <div className="mt-4 flex gap-6 text-xs">
+      <div className="mt-4 flex flex-wrap gap-4 sm:gap-6 text-xs">
         <span className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-brand-500" />
+          <span className="h-2 w-2 rounded-full bg-brand-500 shrink-0" />
           Portfolio
         </span>
         <span className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-surface-500" />
+          <span className="h-2 w-2 rounded-full bg-surface-500 shrink-0" />
           Benchmark
         </span>
       </div>

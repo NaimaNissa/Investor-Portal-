@@ -30,11 +30,11 @@ export function ActionCard({ item }: { item: ActionItem }) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-3 rounded-lg border border-surface-700 bg-surface-800/50 p-3 transition-colors hover:border-surface-600 hover:bg-surface-800"
+      className="flex items-center gap-2 sm:gap-3 rounded-lg border border-surface-700 bg-surface-800/50 p-2.5 sm:p-3 transition-colors hover:border-surface-600 hover:bg-surface-800 min-w-0"
     >
       <div
         className={clsx(
-          "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
+          "flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-lg",
           item.priority === "high"
             ? "bg-amber-500/15 text-amber-400"
             : "bg-surface-700 text-surface-400"

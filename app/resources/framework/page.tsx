@@ -98,9 +98,9 @@ const uniqueSellingPoints = [
 
 export default function FrameworkPage() {
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl flex items-center gap-2">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white flex items-center gap-2">
           <Layers className="h-7 w-7 text-brand-400" />
           Full framework checklist
         </h1>

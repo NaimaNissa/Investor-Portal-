@@ -11,19 +11,19 @@ const pages = [
 export default function LandingPagesPage() {
   const toast = useToast();
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
           Landing pages
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Fundraise and investor-facing pages · Custom domains and branding (Layer 7).
         </p>
       </section>
 
-      <section className="rounded-xl border border-surface-700 bg-surface-900/50 overflow-hidden">
-        <div className="border-b border-surface-700 p-4 flex items-center justify-between">
-          <h2 className="font-semibold text-white">Pages</h2>
+      <section className="rounded-xl border border-surface-700 bg-surface-900/50 overflow-hidden min-w-0">
+        <div className="border-b border-surface-700 p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <h2 className="font-semibold text-white text-sm sm:text-base">Pages</h2>
           <button
             type="button"
             onClick={() => toast("Demo: New landing page created. Edit and publish from the editor.")}

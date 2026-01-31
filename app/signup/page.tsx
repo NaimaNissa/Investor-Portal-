@@ -35,8 +35,8 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-surface-950 bg-grid-pattern p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-surface-950 bg-grid-pattern p-4 sm:p-6 w-full max-w-full overflow-x-hidden">
+      <div className="w-full max-w-md min-w-0">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-surface-400 hover:text-white mb-8"
@@ -47,7 +47,7 @@ export default function SignUpPage() {
           <span className="text-lg font-semibold text-white">Investor Portal</span>
         </Link>
 
-        <div className="rounded-2xl border border-surface-700 bg-surface-900/80 backdrop-blur-xl p-8 shadow-xl">
+        <div className="rounded-2xl border border-surface-700 bg-surface-900/80 backdrop-blur-xl p-6 sm:p-8 shadow-xl w-full">
           <h1 className="text-2xl font-semibold tracking-tight text-white">
             Sign up
           </h1>

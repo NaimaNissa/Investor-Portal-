@@ -37,18 +37,18 @@ export default function BusinessCardPage() {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl flex items-center gap-2">
-          <CreditCard className="h-7 w-7 text-brand-400" />
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white flex items-center gap-2 flex-wrap">
+          <CreditCard className="h-6 w-6 sm:h-7 sm:w-7 text-brand-400 shrink-0" />
           Business card
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Share a branded, digital card with investors and partners. Layer 6: Engagement.
         </p>
       </section>
 
-      <section className="rounded-xl border border-brand-500/20 bg-brand-500/5 p-4 flex items-center gap-3">
+      <section className="rounded-xl border border-brand-500/20 bg-brand-500/5 p-3 sm:p-4 flex flex-col sm:flex-row sm:items-center gap-3 min-w-0 overflow-hidden">
         <Sparkles className="h-5 w-5 text-brand-400 shrink-0" />
         <p className="text-sm text-surface-200">
           Your digital business card is always up to date. Share the link or QR so contacts can view your profile and reach you.

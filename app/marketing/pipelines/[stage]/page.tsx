@@ -23,7 +23,7 @@ export default function PipelineStagePage() {
   }
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section>
         <Link
           href="/marketing/pipelines"
@@ -32,7 +32,7 @@ export default function PipelineStagePage() {
           <ArrowLeft className="h-4 w-4" />
           Back to Fundraise pipeline
         </Link>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl flex items-center gap-2">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white flex items-center gap-2">
           <Link2 className="h-7 w-7 text-brand-400" />
           {stage.name}
         </h1>

@@ -21,37 +21,37 @@ export default function CapitalCallsPage() {
   const pending = capitalCalls.filter((c) => c.status === "pending" && !confirmedIds.has(c.id));
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
           Capital calls
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Automated capital calls with reminders and confirmations. Review and confirm below.
         </p>
       </section>
 
       {pending.length > 0 && (
-        <section className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 lg:p-6">
-          <h2 className="font-semibold text-amber-100 flex items-center gap-2">
-            <Clock className="h-5 w-5" />
+        <section className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 sm:p-5 lg:p-6 min-w-0">
+          <h2 className="font-semibold text-amber-100 flex items-center gap-2 text-sm sm:text-base">
+            <Clock className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" />
             Pending confirmations ({pending.length})
           </h2>
-          <p className="mt-1 text-sm text-amber-200/80">
+          <p className="mt-1 text-xs sm:text-sm text-amber-200/80">
             Confirm and remit by the due date to avoid late fees.
           </p>
         </section>
       )}
 
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-white">Active capital calls</h2>
-        <div className="grid gap-4 sm:grid-cols-2">
+      <section className="space-y-4 min-w-0">
+        <h2 className="text-base sm:text-lg font-semibold text-white">Active capital calls</h2>
+        <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 min-w-0">
           {capitalCalls.map((call) => {
             const isConfirmed = confirmedIds.has(call.id);
             return (
               <div
                 key={call.id}
-                className="rounded-xl border border-surface-700 bg-surface-900/50 p-6"
+                className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0 overflow-hidden"
               >
                 {viewingNotice === call.id && (
                   <div className="mb-4 rounded-lg border border-brand-500/30 bg-brand-500/10 p-4 text-sm text-surface-200">
@@ -66,14 +66,14 @@ export default function CapitalCallsPage() {
                     </button>
                   </div>
                 )}
-                <div className="flex items-start justify-between">
-                  <div className="flex gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/15">
-                      <FileCheck className="h-5 w-5 text-brand-400" />
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                  <div className="flex gap-3 min-w-0">
+                    <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/15">
+                      <FileCheck className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-white">{call.fund}</h3>
-                      <p className="mt-0.5 text-sm text-surface-400">
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-white text-sm sm:text-base">{call.fund}</h3>
+                      <p className="mt-0.5 text-xs sm:text-sm text-surface-400">
                         {call.percentOfCommitment}% of commitment
                       </p>
                     </div>
@@ -88,7 +88,7 @@ export default function CapitalCallsPage() {
                     {call.status === "pending" && !isConfirmed ? "Pending" : "Confirmed"}
                   </span>
                 </div>
-                <div className="mt-6 grid grid-cols-2 gap-4">
+                <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="flex items-center gap-2">
                     <DollarSign className="h-4 w-4 text-surface-500" />
                     <div>
@@ -113,7 +113,7 @@ export default function CapitalCallsPage() {
                   </div>
                 </div>
                 {call.status === "pending" && !isConfirmed && (
-                  <div className="mt-6 flex gap-3">
+                  <div className="mt-4 sm:mt-6 flex flex-wrap gap-2 sm:gap-3">
                     <button
                       type="button"
                       onClick={() => {
@@ -140,8 +140,8 @@ export default function CapitalCallsPage() {
         </div>
       </section>
 
-      <section className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-        <h3 className="text-lg font-semibold text-white">Automation & transparency</h3>
+      <section className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
+        <h3 className="text-base sm:text-lg font-semibold text-white">Automation & transparency</h3>
         <p className="mt-2 text-sm text-surface-400">
           Capital calls are issued automatically with email and in-portal reminders. All confirmations and remittances are logged for full auditability.
         </p>

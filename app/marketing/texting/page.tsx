@@ -102,33 +102,33 @@ export default function TextingPage() {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl flex items-center gap-2">
-          <MessageCircle className="h-7 w-7 text-brand-400" />
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white flex items-center gap-2 flex-wrap">
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 text-brand-400 shrink-0" />
           Texting
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Send context-aware SMS reminders and updates to investors. All messages are logged for compliance.
         </p>
       </section>
 
-      <section className="rounded-xl border border-brand-500/20 bg-brand-500/5 p-4 lg:p-6">
-        <div className="flex items-center gap-3">
-          <Zap className="h-5 w-5 text-brand-400 shrink-0" />
-          <div>
-            <h2 className="font-semibold text-white">Context-aware messaging</h2>
-            <p className="text-sm text-surface-400">
+      <section className="rounded-xl border border-brand-500/20 bg-brand-500/5 p-4 sm:p-5 lg:p-6 min-w-0 overflow-hidden">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 min-w-0">
+          <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
+          <div className="min-w-0">
+            <h2 className="font-semibold text-white text-sm sm:text-base">Context-aware messaging</h2>
+            <p className="text-xs sm:text-sm text-surface-400">
               SMS is triggered by events (capital calls, distributions, documents, events). Recipients can reply for quick confirmation—e.g. “YES” to confirm a capital call.
             </p>
           </div>
         </div>
       </section>
 
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-4">
-          <h2 className="text-lg font-semibold text-white flex items-center gap-2">
-            <Smartphone className="h-5 w-5 text-brand-400" />
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-3 min-w-0">
+        <div className="lg:col-span-2 space-y-4 min-w-0 overflow-hidden">
+          <h2 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <Smartphone className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Demo thread – Investor (demo number)
           </h2>
           <div className="rounded-xl border border-surface-700 bg-surface-900/50 overflow-hidden">
@@ -163,7 +163,7 @@ export default function TextingPage() {
                 </div>
               ))}
             </div>
-            <div className="border-t border-surface-700 p-4 flex gap-2">
+            <div className="border-t border-surface-700 p-3 sm:p-4 flex flex-col sm:flex-row gap-2 min-w-0">
               <input
                 type="text"
                 value={composeText}

@@ -17,30 +17,30 @@ export default function ReportingPage() {
   const onOpenReport = (r: (typeof reports)[number]) =>
     showToast(`Demo: Opening "${r.name}" (${r.type}). PDF download would start.`);
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
           Reporting
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Real-time reports and performance · Time-zone aware, verifiable data.
         </p>
       </section>
 
-      <section>
-        <h2 className="text-lg font-semibold text-white flex items-center gap-2">
-          <BarChart3 className="h-5 w-5 text-brand-400" />
+      <section className="min-w-0 overflow-hidden">
+        <h2 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+          <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
           Performance at a glance
         </h2>
         <PerformanceChart data={performanceData} />
       </section>
 
-      <section className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-        <h2 className="font-semibold text-white flex items-center gap-2">
-          <FileText className="h-5 w-5 text-brand-400" />
+      <section className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0 overflow-hidden">
+        <h2 className="font-semibold text-white flex items-center gap-2 text-sm sm:text-base">
+          <FileText className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
           Available reports
         </h2>
-        <ul className="mt-4 space-y-2">
+        <ul className="mt-3 sm:mt-4 space-y-2">
           {reports.map((r) => (
             <li key={r.id}>
               <button

@@ -7,20 +7,20 @@ import { useToast } from "@/components/Toast";
 export default function IntelligencePage() {
   const toast = useToast();
   return (
-    <div className="space-y-8 animate-fade-in">
-      <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
+      <section className="min-w-0">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
           AI Investment Intelligence
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-surface-400">
           Real-time deal scoring, risk analysis, and performance benchmarking.
         </p>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border border-brand-500/30 bg-brand-500/5 p-6">
-          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <Brain className="h-5 w-5 text-brand-400" />
+      <section className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 min-w-0">
+        <div className="rounded-xl border border-brand-500/30 bg-brand-500/5 p-4 sm:p-6 min-w-0 overflow-hidden">
+          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <Brain className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             AI insights
           </h3>
           <p className="mt-1 text-sm text-surface-400">
@@ -52,31 +52,31 @@ export default function IntelligencePage() {
           </ul>
         </div>
 
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <GitCompare className="h-5 w-5 text-brand-400" />
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <GitCompare className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Deal comparison engine
           </h3>
-          <p className="mt-1 text-sm text-surface-400">
+          <p className="mt-1 text-xs sm:text-sm text-surface-400">
             Data-driven side-by-side evaluation
           </p>
-          <ul className="mt-6 space-y-3">
+          <ul className="mt-4 sm:mt-6 space-y-3">
             {dealsForComparison.map((deal) => (
               <li
                 key={deal.id}
-                className="flex items-center justify-between rounded-lg border border-surface-700 bg-surface-800/50 p-4"
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-lg border border-surface-700 bg-surface-800/50 p-3 sm:p-4 min-w-0"
               >
-                <div>
-                  <p className="font-medium text-surface-100">{deal.name}</p>
+                <div className="min-w-0">
+                  <p className="font-medium text-surface-100 text-sm sm:text-base">{deal.name}</p>
                   <p className="text-xs text-surface-500">
                     {deal.sector} · {deal.stage}
                   </p>
                 </div>
-                <div className="flex items-center gap-4">
-                  <span className="text-sm font-semibold text-brand-400">
+                <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+                  <span className="text-xs sm:text-sm font-semibold text-brand-400">
                     Score {deal.score}
                   </span>
-                  <span className="text-sm text-surface-400">
+                  <span className="text-xs sm:text-sm text-surface-400">
                     IRR {deal.irrProjected}%
                   </span>
                 </div>
@@ -94,25 +94,25 @@ export default function IntelligencePage() {
         </div>
       </section>
 
-      <section className="grid gap-6 sm:grid-cols-2">
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <BarChart3 className="h-5 w-5 text-brand-400" />
+      <section className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 min-w-0">
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Predictive analytics
           </h3>
-          <p className="mt-2 text-sm text-surface-400">
+          <p className="mt-2 text-xs sm:text-sm text-surface-400">
             Forecasts for returns, cash flow, and risk exposure. Phase 2.
           </p>
           <p className="mt-2 text-xs text-surface-500">
             Coming: return forecasts, cash flow projections, stress testing.
           </p>
         </div>
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-          <h3 className="text-lg font-semibold text-white flex items-center gap-2">
-            <Zap className="h-5 w-5 text-brand-400" />
+        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+            <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Investor AI Co-Pilot
           </h3>
-          <p className="mt-2 text-sm text-surface-400">
+          <p className="mt-2 text-xs sm:text-sm text-surface-400">
             Natural-language queries for instant portfolio insights. Phase 2.
           </p>
           <p className="mt-2 text-xs text-surface-500">

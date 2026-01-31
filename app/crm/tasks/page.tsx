@@ -7,10 +7,10 @@ export default function TasksPage() {
   const tasks = actionItems.filter((i) => i.type === "capital_call" || i.type === "document" || i.type === "compliance");
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section>
         <div className="flex items-center gap-2">
-          <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+          <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
             Tasks
           </h1>
           <span className="rounded bg-emerald-500/20 px-2 py-0.5 text-xs font-medium text-emerald-400">
