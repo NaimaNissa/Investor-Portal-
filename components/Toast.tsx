@@ -36,14 +36,14 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           {toasts.map((t) => (
             <div
               key={t.id}
-              className="flex items-center gap-3 rounded-lg border border-surface-600 bg-surface-800 px-4 py-3 text-sm text-surface-100 shadow-xl animate-fade-in"
+              className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-gray-900 shadow-xl animate-fade-in"
             >
-              <CheckCircle className="h-5 w-5 shrink-0 text-emerald-400" />
+              <CheckCircle className="h-5 w-5 shrink-0 text-emerald-500" />
               <span className="flex-1">{t.text}</span>
               <button
                 type="button"
                 onClick={() => dismiss(t.id)}
-                className="rounded p-1 text-surface-400 hover:text-white hover:bg-surface-700 transition-colors"
+                className="rounded p-1 text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition-colors"
                 aria-label="Dismiss"
               >
                 <X className="h-4 w-4" />

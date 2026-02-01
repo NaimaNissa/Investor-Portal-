@@ -9,37 +9,37 @@ export default function IntelligencePage() {
   return (
     <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section className="min-w-0">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900">
           AI Investment Intelligence
         </h1>
-        <p className="mt-1 text-sm sm:text-base text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-gray-500">
           Real-time deal scoring, risk analysis, and performance benchmarking.
         </p>
       </section>
 
       <section className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-2 min-w-0">
         <div className="rounded-xl border border-brand-500/30 bg-brand-500/5 p-4 sm:p-6 min-w-0 overflow-hidden">
-          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center gap-2">
             <Brain className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             AI insights
           </h3>
-          <p className="mt-1 text-sm text-surface-400">
+          <p className="mt-1 text-sm text-gray-500">
             Context-aware intelligence for your portfolio
           </p>
           <ul className="mt-6 space-y-4">
             {aiInsights.map((insight) => (
               <li
                 key={insight.id}
-                className="flex gap-4 rounded-lg border border-surface-700 bg-surface-900/50 p-4"
+                className="flex gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/15">
                   <Zap className="h-5 w-5 text-brand-400" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="font-medium text-surface-100">{insight.title}</p>
-                  <p className="mt-0.5 text-sm text-surface-400">{insight.summary}</p>
+                  <p className="font-medium text-gray-900">{insight.title}</p>
+                  <p className="mt-0.5 text-sm text-gray-500">{insight.summary}</p>
                   <div className="mt-2 flex items-center gap-2">
-                    <span className="rounded-full bg-surface-700 px-2 py-0.5 text-xs font-medium text-surface-300">
+                    <span className="rounded-full bg-gray-200 px-2 py-0.5 text-xs font-medium text-gray-700">
                       Score: {insight.score}/100
                     </span>
                     {insight.trend === "up" && (
@@ -52,23 +52,23 @@ export default function IntelligencePage() {
           </ul>
         </div>
 
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
-          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center gap-2">
             <GitCompare className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Deal comparison engine
           </h3>
-          <p className="mt-1 text-xs sm:text-sm text-surface-400">
+          <p className="mt-1 text-xs sm:text-sm text-gray-500">
             Data-driven side-by-side evaluation
           </p>
           <ul className="mt-4 sm:mt-6 space-y-3">
             {dealsForComparison.map((deal) => (
               <li
                 key={deal.id}
-                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-lg border border-surface-700 bg-surface-800/50 p-3 sm:p-4 min-w-0"
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 rounded-lg border border-gray-200 bg-gray-100 p-3 sm:p-4 min-w-0"
               >
                 <div className="min-w-0">
-                  <p className="font-medium text-surface-100 text-sm sm:text-base">{deal.name}</p>
-                  <p className="text-xs text-surface-500">
+                  <p className="font-medium text-gray-900 text-sm sm:text-base">{deal.name}</p>
+                  <p className="text-xs text-gray-600">
                     {deal.sector} · {deal.stage}
                   </p>
                 </div>
@@ -76,7 +76,7 @@ export default function IntelligencePage() {
                   <span className="text-xs sm:text-sm font-semibold text-brand-400">
                     Score {deal.score}
                   </span>
-                  <span className="text-xs sm:text-sm text-surface-400">
+                  <span className="text-xs sm:text-sm text-gray-500">
                     IRR {deal.irrProjected}%
                   </span>
                 </div>
@@ -95,27 +95,27 @@ export default function IntelligencePage() {
       </section>
 
       <section className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 min-w-0">
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
-          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center gap-2">
             <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Predictive analytics
           </h3>
-          <p className="mt-2 text-xs sm:text-sm text-surface-400">
+          <p className="mt-2 text-xs sm:text-sm text-gray-500">
             Forecasts for returns, cash flow, and risk exposure. Phase 2.
           </p>
-          <p className="mt-2 text-xs text-surface-500">
+          <p className="mt-2 text-xs text-gray-600">
             Coming: return forecasts, cash flow projections, stress testing.
           </p>
         </div>
-        <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0">
-          <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+        <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 sm:p-6 min-w-0">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center gap-2">
             <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Investor AI Co-Pilot
           </h3>
-          <p className="mt-2 text-xs sm:text-sm text-surface-400">
+          <p className="mt-2 text-xs sm:text-sm text-gray-500">
             Natural-language queries for instant portfolio insights. Phase 2.
           </p>
-          <p className="mt-2 text-xs text-surface-500">
+          <p className="mt-2 text-xs text-gray-600">
             Ask questions in plain language; get answers with sources.
           </p>
         </div>

@@ -104,11 +104,11 @@ export default function TextingPage() {
   return (
     <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section className="min-w-0">
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white flex items-center gap-2 flex-wrap">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900 flex items-center gap-2 flex-wrap">
           <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 text-brand-400 shrink-0" />
           Texting
         </h1>
-        <p className="mt-1 text-sm sm:text-base text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-gray-500">
           Send context-aware SMS reminders and updates to investors. All messages are logged for compliance.
         </p>
       </section>
@@ -117,9 +117,9 @@ export default function TextingPage() {
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 min-w-0">
           <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
           <div className="min-w-0">
-            <h2 className="font-semibold text-white text-sm sm:text-base">Context-aware messaging</h2>
-            <p className="text-xs sm:text-sm text-surface-400">
-              SMS is triggered by events (capital calls, distributions, documents, events). Recipients can reply for quick confirmation—e.g. “YES” to confirm a capital call.
+            <h2 className="font-semibold text-gray-900 text-sm sm:text-base">Context-aware messaging</h2>
+            <p className="text-xs sm:text-sm text-gray-500">
+              SMS is triggered by events (capital calls, distributions, documents, events). Recipients can reply for quick confirmation—e.g. &quot;YES&quot; to confirm a capital call.
             </p>
           </div>
         </div>
@@ -127,14 +127,14 @@ export default function TextingPage() {
 
       <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-3 min-w-0">
         <div className="lg:col-span-2 space-y-4 min-w-0 overflow-hidden">
-          <h2 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center gap-2">
             <Smartphone className="h-4 w-4 sm:h-5 sm:w-5 text-brand-400 shrink-0" />
             Demo thread – Investor (demo number)
           </h2>
-          <div className="rounded-xl border border-surface-700 bg-surface-900/50 overflow-hidden">
-            <div className="border-b border-surface-700 p-3 bg-surface-800/50">
-              <p className="text-sm font-medium text-white">+1 (555) 000-0000</p>
-              <p className="text-xs text-surface-500">SMS conversation · All messages logged</p>
+          <div className="rounded-xl border border-gray-200 bg-gray-50 overflow-hidden">
+            <div className="border-b border-gray-200 p-3 bg-gray-100">
+              <p className="text-sm font-medium text-gray-900">+1 (555) 000-0000</p>
+              <p className="text-xs text-gray-600">SMS conversation · All messages logged</p>
             </div>
             <div className="p-4 space-y-4 max-h-80 overflow-y-auto">
               {thread.map((msg) => (
@@ -145,15 +145,15 @@ export default function TextingPage() {
                   <div
                     className={`max-w-[85%] rounded-lg px-4 py-2.5 ${
                       msg.type === "outbound"
-                        ? "bg-brand-500/20 text-brand-100 rounded-br-sm"
-                        : "bg-surface-700 text-surface-100 rounded-bl-sm"
+                        ? "bg-brand-500/20 text-gray-900 rounded-br-sm"
+                        : "bg-gray-200 text-gray-900 rounded-bl-sm"
                     }`}
                   >
                     <p className="text-sm whitespace-pre-wrap">{msg.body}</p>
                     <div className="mt-1 flex items-center gap-2 justify-end">
-                      <span className="text-xs text-surface-500">{msg.time}</span>
+                      <span className="text-xs text-gray-600">{msg.time}</span>
                       {msg.type === "outbound" && msg.status && (
-                        <span className="flex items-center gap-0.5 text-xs text-surface-400">
+                        <span className="flex items-center gap-0.5 text-xs text-gray-500">
                           <CheckCircle className="h-3 w-3" />
                           {msg.status}
                         </span>
@@ -163,14 +163,14 @@ export default function TextingPage() {
                 </div>
               ))}
             </div>
-            <div className="border-t border-surface-700 p-3 sm:p-4 flex flex-col sm:flex-row gap-2 min-w-0">
+            <div className="border-t border-gray-200 p-3 sm:p-4 flex flex-col sm:flex-row gap-2 min-w-0">
               <input
                 type="text"
                 value={composeText}
                 onChange={(e) => setComposeText(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
                 placeholder="Type a message or use a template below…"
-                className="flex-1 rounded-lg border border-surface-600 bg-surface-800 px-4 py-2.5 text-sm text-surface-100 placeholder:text-surface-500 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+                className="flex-1 rounded-lg border border-gray-300 bg-gray-100 px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-600 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
               />
               <button
                 type="button"
@@ -186,8 +186,8 @@ export default function TextingPage() {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-lg font-semibold text-white">Context templates</h2>
-          <p className="text-sm text-surface-500">
+          <h2 className="text-lg font-semibold text-gray-900">Context templates</h2>
+          <p className="text-sm text-gray-600">
             Pre-built, context-aware messages. Edit before sending.
           </p>
           <ul className="space-y-2">
@@ -198,8 +198,8 @@ export default function TextingPage() {
                   onClick={() => handleUseTemplate(t.id)}
                   className={`w-full flex items-center gap-3 rounded-lg border p-3 text-left transition-colors ${
                     selectedTemplate === t.id
-                      ? "border-brand-500 bg-brand-500/10 text-white"
-                      : "border-surface-700 bg-surface-900/50 text-surface-200 hover:border-surface-600 hover:bg-surface-800/50"
+                      ? "border-brand-500 bg-brand-500/10 text-gray-900"
+                      : "border-gray-200 bg-gray-50 text-gray-800 hover:border-gray-300 hover:bg-gray-100"
                   }`}
                 >
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-500/15">
@@ -207,7 +207,7 @@ export default function TextingPage() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium">{t.label}</p>
-                    <p className="text-xs text-surface-500 truncate">{t.preview}</p>
+                    <p className="text-xs text-gray-600 truncate">{t.preview}</p>
                   </div>
                 </button>
               </li>
@@ -216,13 +216,13 @@ export default function TextingPage() {
         </div>
       </div>
 
-      <section className="rounded-xl border border-surface-700 bg-surface-900/50 p-6">
-        <h3 className="font-semibold text-white">How it works (demo)</h3>
-        <ul className="mt-3 space-y-2 text-sm text-surface-400">
-          <li>• <strong className="text-surface-200">Automated:</strong> Capital call and distribution reminders can be sent automatically with a configurable delay.</li>
-          <li>• <strong className="text-surface-200">Reply handling:</strong> Replies like “YES” can confirm actions (e.g. capital call); responses are logged and can trigger workflows.</li>
-          <li>• <strong className="text-surface-200">Audit trail:</strong> Every SMS sent and received is stored with timestamp and recipient for compliance.</li>
-          <li>• <strong className="text-surface-200">Opt-in:</strong> Investors opt in to SMS; preferences are managed in Account settings.</li>
+      <section className="rounded-xl border border-gray-200 bg-gray-50 p-6">
+        <h3 className="font-semibold text-gray-900">How it works (demo)</h3>
+        <ul className="mt-3 space-y-2 text-sm text-gray-500">
+          <li>• <strong className="text-gray-800">Automated:</strong> Capital call and distribution reminders can be sent automatically with a configurable delay.</li>
+          <li>• <strong className="text-gray-800">Reply handling:</strong> Replies like &quot;YES&quot; can confirm actions (e.g. capital call); responses are logged and can trigger workflows.</li>
+          <li>• <strong className="text-gray-800">Audit trail:</strong> Every SMS sent and received is stored with timestamp and recipient for compliance.</li>
+          <li>• <strong className="text-gray-800">Opt-in:</strong> Investors opt in to SMS; preferences are managed in Account settings.</li>
         </ul>
       </section>
     </div>

@@ -12,10 +12,10 @@ export default function IntegrationsPage() {
   return (
     <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section>
-        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-white">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900">
           Integrations
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-gray-500">
           Layer 7: API-first integration hub · Plug-and-play with banks, CRMs, accounting tools.
         </p>
       </section>
@@ -24,14 +24,14 @@ export default function IntegrationsPage() {
         {integrations.map(({ name, icon: Icon, status, desc }) => (
           <div
             key={name}
-            className="rounded-xl border border-surface-700 bg-surface-900/50 p-6 transition-colors hover:border-surface-600"
+            className="rounded-xl border border-gray-200 bg-gray-50 p-6 transition-colors hover:border-gray-300"
           >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-500/15">
               <Icon className="h-6 w-6 text-brand-400" />
             </div>
-            <h3 className="mt-4 font-semibold text-white">{name}</h3>
-            <p className="mt-1 text-sm text-surface-500">{desc}</p>
-            <span className="mt-3 inline-block rounded bg-surface-700 px-2 py-1 text-xs font-medium text-surface-300">
+            <h3 className="mt-4 font-semibold text-gray-900">{name}</h3>
+            <p className="mt-1 text-sm text-gray-600">{desc}</p>
+            <span className="mt-3 inline-block rounded bg-gray-200 px-2 py-1 text-xs font-medium text-gray-700">
               {status}
             </span>
           </div>

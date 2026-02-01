@@ -15,9 +15,9 @@ type DataPoint = { month: string; value: number; benchmark: number };
 
 export function PerformanceChart({ data }: { data: DataPoint[] }) {
   return (
-    <div className="rounded-xl border border-surface-700 bg-surface-900/50 p-4 sm:p-6 min-w-0 overflow-hidden">
-      <h3 className="text-base sm:text-lg font-semibold text-white">Performance vs benchmark</h3>
-      <p className="mt-0.5 text-xs sm:text-sm text-surface-400">
+    <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 sm:p-6 min-w-0 overflow-hidden">
+      <h3 className="text-base sm:text-lg font-semibold text-gray-900">Performance vs benchmark</h3>
+      <p className="mt-0.5 text-xs sm:text-sm text-gray-500">
         Monthly return (%), trailing 7 months
       </p>
       <div className="mt-4 sm:mt-6 h-48 sm:h-56 md:h-64 min-h-[12rem]">
@@ -82,7 +82,7 @@ export function PerformanceChart({ data }: { data: DataPoint[] }) {
           Portfolio
         </span>
         <span className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-surface-500 shrink-0" />
+          <span className="h-2 w-2 rounded-full bg-gray-500 shrink-0" />
           Benchmark
         </span>
       </div>

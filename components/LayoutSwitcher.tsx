@@ -27,16 +27,16 @@ export function LayoutSwitcher({ children }: { children: React.ReactNode }) {
 
   if (!isReady) {
     return (
-      <div className="flex min-h-screen w-full items-center justify-center bg-surface-950">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-surface-600 border-t-brand-500" />
+      <div className="flex min-h-screen w-full items-center justify-center bg-white">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-gray-200 border-t-brand-500" />
       </div>
     );
   }
 
   if (!user && !isAuthPage) {
     return (
-      <div className="flex min-h-screen w-full items-center justify-center bg-surface-950">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-surface-600 border-t-brand-500" />
+      <div className="flex min-h-screen w-full items-center justify-center bg-white">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-gray-200 border-t-brand-500" />
       </div>
     );
   }

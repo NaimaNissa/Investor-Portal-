@@ -32,6 +32,15 @@ body {
   color: var(--foreground);
   background: var(--background);
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Ensure all text and boxes are visible on all devices */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px; /* Prevents iOS zoom on input focus */
+  }
 }
 
 @layer utilities {
@@ -43,13 +52,24 @@ body {
     min-width: 0;
     max-width: 100%;
   }
+  /* Ensure text is visible: wrap long words and prevent overflow */
+  .text-visible {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  /* Minimum touch target size for accessibility */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 /* Subtle grid background for premium feel */
 .bg-grid-pattern {
   background-image: 
-    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 

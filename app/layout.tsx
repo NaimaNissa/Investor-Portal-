@@ -19,9 +19,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${inter.variable} font-sans antialiased min-h-screen bg-surface-950 text-surface-100 bg-grid-pattern`}
+        className={`${inter.variable} font-sans antialiased min-h-screen bg-white text-gray-900 bg-grid-pattern`}
       >
         <AuthProvider>
           <ToastProvider>

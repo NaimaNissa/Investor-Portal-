@@ -12,19 +12,19 @@ export default function MarketingEmailsPage() {
   const showToast = useToast();
   const onNewCampaign = () => showToast("Demo: New campaign created. Draft saved.");
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6 sm:space-y-8 animate-fade-in min-w-0 max-w-full">
       <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-white lg:text-3xl">
+        <h1 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-gray-900">
           Marketing emails
         </h1>
-        <p className="mt-1 text-surface-400">
+        <p className="mt-1 text-sm sm:text-base text-gray-500">
           Layer 6: Engagement · Investor communications and campaign performance.
         </p>
       </section>
 
-      <section className="rounded-xl border border-surface-700 bg-surface-900/50 overflow-hidden">
-        <div className="border-b border-surface-700 p-4 flex items-center justify-between">
-          <h2 className="font-semibold text-white flex items-center gap-2">
+      <section className="rounded-xl border border-gray-200 bg-gray-50 overflow-hidden">
+        <div className="border-b border-gray-200 p-4 flex items-center justify-between">
+          <h2 className="font-semibold text-gray-900 flex items-center gap-2">
             <Megaphone className="h-5 w-5 text-brand-400" />
             Campaigns
           </h2>
@@ -37,16 +37,16 @@ export default function MarketingEmailsPage() {
             New campaign
           </button>
         </div>
-        <ul className="divide-y divide-surface-700">
+        <ul className="divide-y divide-gray-200">
           {campaigns.map((c) => (
-            <li key={c.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-3 sm:p-4 hover:bg-surface-800/50 min-w-0">
+            <li key={c.id} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-3 sm:p-4 hover:bg-gray-100 min-w-0">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-500/15">
                   <Mail className="h-5 w-5 text-brand-400" />
                 </div>
                 <div>
-                  <p className="font-medium text-white">{c.name}</p>
-                  <p className="text-sm text-surface-500">Sent {c.sent}</p>
+                  <p className="font-medium text-gray-900">{c.name}</p>
+                  <p className="text-sm text-gray-600">Sent {c.sent}</p>
                 </div>
               </div>
               <span className="rounded bg-emerald-500/20 px-2 py-1 text-sm font-medium text-emerald-400">

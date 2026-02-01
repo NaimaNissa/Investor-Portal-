@@ -130,19 +130,19 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-surface-800 bg-surface-900/95 backdrop-blur-xl hidden lg:block">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r border-gray-200 bg-white shadow-sm hidden lg:block">
       <div className="flex h-full flex-col">
-        <div className="flex h-16 items-center gap-2 border-b border-surface-800 px-6">
+        <div className="flex h-16 items-center gap-2 border-b border-gray-200 px-6">
           <div className="flex items-center gap-2">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-600">
-              <Sparkles className="h-5 w-5 text-white" />
+              <Sparkles className="h-5 w-5 text-gray-900" />
             </div>
-            <span className="text-lg font-semibold tracking-tight text-white">
+            <span className="text-lg font-semibold tracking-tight text-gray-900">
               Investor Portal
             </span>
           </div>
         </div>
-        <nav className="flex-1 space-y-0.5 p-4 overflow-y-auto">
+        <nav className="flex-1 space-y-0.5 p-4 overflow-y-auto bg-white">
           {navItems.map((item) => {
             const hasChildren = "children" in item && item.children?.length;
             const isExpanded = hasChildren && expanded.includes(item.href);
@@ -162,19 +162,19 @@ export function Sidebar() {
                       "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors cursor-pointer",
                       isParentActive
                         ? "bg-brand-500/15 text-brand-400"
-                        : "text-surface-400 hover:bg-surface-800 hover:text-surface-100"
+                        : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                     )}
                   >
                     <item.icon className="h-5 w-5 shrink-0" />
                     <span className="flex-1">{item.label}</span>
                     {isExpanded ? (
-                      <ChevronDown className="h-4 w-4 shrink-0 text-surface-500" />
+                      <ChevronDown className="h-4 w-4 shrink-0 text-gray-500" />
                     ) : (
-                      <ChevronRight className="h-4 w-4 shrink-0 text-surface-500 opacity-70" />
+                      <ChevronRight className="h-4 w-4 shrink-0 text-gray-500 opacity-70" />
                     )}
                   </div>
                   {isExpanded && item.children && (
-                    <div className="ml-4 mt-0.5 border-l border-surface-700 pl-3 space-y-0.5">
+                    <div className="ml-4 mt-0.5 border-l border-gray-200 pl-3 space-y-0.5">
                       {item.children.map((child) => {
                         const isActive = pathname === child.href;
                         const content = (
@@ -186,7 +186,7 @@ export function Sidebar() {
                               </span>
                             )}
                             {child.locked && (
-                              <Lock className="h-3.5 w-3.5 shrink-0 text-surface-500" />
+                              <Lock className="h-3.5 w-3.5 shrink-0 text-gray-500" />
                             )}
                           </>
                         );
@@ -195,7 +195,7 @@ export function Sidebar() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs text-surface-500 hover:bg-surface-800 hover:text-surface-400 transition-colors"
+                              className="flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs text-gray-500 hover:bg-gray-100 hover:text-gray-700 transition-colors"
                               title="Premium or upgrade required"
                             >
                               {content}
@@ -210,7 +210,7 @@ export function Sidebar() {
                               "flex items-center gap-2 rounded-lg px-2.5 py-2 text-xs font-medium transition-colors",
                               isActive
                                 ? "bg-brand-500/15 text-brand-400"
-                                : "text-surface-400 hover:bg-surface-800 hover:text-surface-100"
+                                : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                             )}
                           >
                             {content}
@@ -232,7 +232,7 @@ export function Sidebar() {
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
                   isActive
                     ? "bg-brand-500/15 text-brand-400"
-                    : "text-surface-400 hover:bg-surface-800 hover:text-surface-100"
+                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                 )}
               >
                 <item.icon className="h-5 w-5 shrink-0" />
@@ -244,15 +244,15 @@ export function Sidebar() {
                 )}
                 {isActive && <ChevronRight className="ml-1 h-4 w-4 shrink-0 text-brand-400" />}
                 {!isActive && !("badge" in item && item.badge) && (
-                  <ChevronRight className="ml-1 h-4 w-4 shrink-0 text-surface-500 opacity-70" />
+                  <ChevronRight className="ml-1 h-4 w-4 shrink-0 text-gray-500 opacity-70" />
                 )}
               </Link>
             );
           })}
         </nav>
-        <div className="border-t border-surface-800 p-4">
-          <p className="text-xs text-surface-500">Powered by AI investment intelligence</p>
-          <p className="mt-0.5 text-xs text-surface-600">Data → Decisions · Automation → Trust</p>
+        <div className="border-t border-gray-200 p-4 min-w-0">
+          <p className="text-xs text-gray-500 break-words">Powered by AI investment intelligence</p>
+          <p className="mt-0.5 text-xs text-gray-600 break-words">Data → Decisions · Automation → Trust</p>
         </div>
       </div>
     </aside>
