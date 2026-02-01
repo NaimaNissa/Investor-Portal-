@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} font-sans antialiased min-h-screen bg-white text-gray-900 bg-grid-pattern`}
+        className={`${inter.variable} font-sans antialiased min-h-screen bg-white text-gray-900`}
       >
         <AuthProvider>
           <ToastProvider>

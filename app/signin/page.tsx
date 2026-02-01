@@ -31,7 +31,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white bg-grid-pattern p-4 sm:p-6 w-full max-w-full overflow-x-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white p-4 sm:p-6 w-full max-w-full overflow-x-hidden">
       <div className="w-full max-w-md min-w-0">
         <Link
           href="/"
