@@ -8,7 +8,7 @@ import { useToast } from "@/components/Toast";
 export default function BusinessCardPage() {
   const toast = useToast();
   const { user } = useAuth();
-  const [name, setName] = useState(user?.name ?? "Fredo Cloud");
+  const [name, setName] = useState(user?.name ?? "Sinbad");
   const [title, setTitle] = useState(user?.role ?? "Investor");
   const [email, setEmail] = useState(user?.email ?? "info@fredocloud.com");
   const [company, setCompany] = useState("Investor Portal");

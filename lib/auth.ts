@@ -1,6 +1,6 @@
-// Default demo credentials (for client presentation only)
-export const DEFAULT_LOGIN_EMAIL = "info@fredocloud.com";
-export const DEFAULT_LOGIN_PASSWORD = "nWu6t77HW9!PsiD";
+// Simple demo credentials
+export const DEMO_USERNAME = "Sinbad";
+export const DEMO_PASSWORD = "1234";
 
 export const AUTH_STORAGE_KEY = "investor-portal-auth";
 
@@ -10,11 +10,8 @@ export type AuthUser = {
   role: string;
 };
 
-export function validateCredentials(email: string, password: string): boolean {
-  return (
-    email.trim().toLowerCase() === DEFAULT_LOGIN_EMAIL.toLowerCase() &&
-    password === DEFAULT_LOGIN_PASSWORD
-  );
+export function validateCredentials(username: string, password: string): boolean {
+  return username.trim() === DEMO_USERNAME && password === DEMO_PASSWORD;
 }
 
 export function getStoredUser(): AuthUser | null {

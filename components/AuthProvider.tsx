@@ -27,11 +27,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setIsReady(true);
   }, []);
 
-  const login = useCallback((email: string, password: string): boolean => {
-    if (!validateCredentials(email, password)) return false;
+  const login = useCallback((username: string, password: string): boolean => {
+    if (!validateCredentials(username, password)) return false;
     const authUser: AuthUser = {
-      email: email.trim().toLowerCase(),
-      name: "Fredo Cloud",
+      email: "sinbad",
+      name: "Sinbad",
       role: "Investor",
     };
     setUser(authUser);

@@ -5,28 +5,28 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Sparkles, Mail, Lock, ArrowRight } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
-import { DEFAULT_LOGIN_EMAIL, DEFAULT_LOGIN_PASSWORD } from "@/lib/auth";
 
 export default function SignInPage() {
   const router = useRouter();
   const { login } = useAuth();
-  const [email, setEmail] = useState(DEFAULT_LOGIN_EMAIL);
-  const [password, setPassword] = useState(DEFAULT_LOGIN_PASSWORD);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [inputsReady, setInputsReady] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
     await new Promise((r) => setTimeout(r, 300));
-    const success = login(email, password);
+    const success = login(username, password);
     setLoading(false);
     if (success) {
       router.push("/");
       router.refresh();
     } else {
-      setError("Invalid email or password. Please try again.");
+      setError("Invalid username or password. Please try again.");
     }
   };
 
@@ -51,27 +51,29 @@ export default function SignInPage() {
             Enter your credentials to access the portal.
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+          <form onSubmit={handleSubmit} className="mt-8 space-y-5" autoComplete="off">
             {error && (
-              <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+              <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-800">
                 {error}
               </div>
             )}
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                Username
               </label>
               <div className="relative mt-1.5">
                 <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-600" />
                 <input
-                  id="email"
-                  type="email"
-                  autoComplete="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 bg-gray-100 py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder:text-gray-500 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
-                  placeholder="you@example.com"
+                  id="username"
+                  type="text"
+                  autoComplete="off"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  onFocus={() => setInputsReady(true)}
+                  readOnly={!inputsReady}
+                  className="w-full rounded-lg border border-gray-300 bg-gray-100 py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder:text-gray-500 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 read-only:bg-gray-50"
+                  placeholder="Enter username"
                   required
                 />
               </div>
@@ -86,10 +88,12 @@ export default function SignInPage() {
                 <input
                   id="password"
                   type="password"
-                  autoComplete="current-password"
+                  autoComplete="off"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full rounded-lg border border-gray-300 bg-gray-100 py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder:text-gray-500 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500"
+                  onFocus={() => setInputsReady(true)}
+                  readOnly={!inputsReady}
+                  className="w-full rounded-lg border border-gray-300 bg-gray-100 py-2.5 pl-10 pr-4 text-sm text-gray-900 placeholder:text-gray-500 focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500 read-only:bg-gray-50"
                   placeholder="••••••••"
                   required
                 />
